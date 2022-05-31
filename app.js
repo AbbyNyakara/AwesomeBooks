@@ -1,4 +1,4 @@
-/* eslint no-use-before-define: ["error", { "variables": false }] */
+/* eslint-disable no-unused-vars */
 
 const title = document.querySelector('.title-input');
 const author = document.querySelector('.author-input');
