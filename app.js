@@ -1,52 +1,46 @@
-const form = document.querySelector('form');
-const titleInput = document.querySelector('#title-input');
-const authorInput = document.querySelector('#author-input');
+const title = document.querySelector('.title-input');
+const author = document.querySelector('.author-input');
+const loggedBooks = document.querySelector('.logged-books');
 const addButton = document.querySelector('.add-book');
-const loggedBooksContainer = document.querySelector('.logged-books');
-let title = titleInput.value;
-let book = authorInput.value;s
 
-let bookList = [
-    {
-        title: "The tales of mia", 
-        author: "Abby Nyakara"
-    }
-];
+let books = [];
 
-function addBook(){
-    loggedBook.innerHTML = ''; // for single book
-    for (let i=0; i<bookList.lenght; i++){
-        loggedBook += `
-        <div>
-            <p>${bookList[i].title}</p>
-            <p>${bookList[i].author}</p>
-            <button type="button">Remove</button>
-            <hr>
-        </div>
-        `;
-    }
-    loggedBooksContainer.innerHTML += loggedBook;
+function showBook() {
+  loggedBooks.innerHTML = '';
+  for (let i = 0; i < books.length; i += 1) {
+    loggedBooks.innerHTML += `
+    <div>
+      <p class="title">${books[i].title}</p>
+      <p class="author">${books[i].author}</p>
+      <button class="button" onclick="removeBook(${i})">remove</button>
+      <hr/>
+    </div>
+   `;
+    title.value = '';
+    author.value = '';
+  }
 }
 
-function remove(index) {
-    bookList.splice(index, 1);
-    addBook();
-    localStorage.setItem('bookList', JSON.stringify(bookList));
-  }
+function removeBook(index) {
+  books.splice(index, 1);
+  showBook();
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
 
 window.onload = () => {
-if (localStorage.getItem('bookList')) {
-    bookList = JSON.parse(localStorage.getItem('bookList'));
-}
-addBook();
+  if (localStorage.getItem('books')) {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+  showBook();
 };
 
 addButton.addEventListener('click', () => {
-    const onebook = {
-      title: title,
-      author: author,
-    };
-    bookList.push(onebook);
-    addBook();
-    localStorage.setItem('bookList', JSON.stringify(bookList));
-  });
+  const book = {
+    title: title.value,
+    author: author.value,
+  };
+  books.push(book);
+  showBook();
+  localStorage.setItem('books', JSON.stringify(books));
+});
