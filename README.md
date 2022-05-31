@@ -2,55 +2,40 @@
 
 # Project Name
 
-> Description the project.
+> Awesome Books Project
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- HTML
+- CSS
+- Javascript
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- IDE (Atom/Visual studio code)
 
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
+- You can download the file directly by downloading as a zip file directly from github.
+- Alternatively, you can clone the repository by running the git clone command. 
 
 
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@AbbyNyakara](https://github.com/AbbyNyakara)
+- Twitter: [@AbbyNyakara](https://twitter.com/twitterhandle)
+- LinkedIn: [Abigail Nyakara](https://www.linkedin.com/in/abigail-nyakara001/)
 
 👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/aster-alemu)
+- Twitter: [@twitterhandle](https://twitter.com/asterAlemu)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/asterAlemu)
 
 ## 🤝 Contributing
 
@@ -65,9 +50,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
