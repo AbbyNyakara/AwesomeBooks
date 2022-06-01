@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 const title = document.querySelector('.title-input');
 const author = document.querySelector('.author-input');
 const loggedBooks = document.querySelector('.logged-books');
@@ -30,10 +32,9 @@ class Book {
 const booksArray = new Book();
 let { books } = booksArray;
 
-
 function showBooks() {
-    loggedBooks.innerHTML = '';
-  for (let i = 0; i < books.length; i++) {
+  loggedBooks.innerHTML = '';
+  for (let i = 0; i < books.length; i = i+1) {
     loggedBooks.innerHTML += `
     <div class="card">
       <p class="title">"${books[i].title}" by ${books[i].author}</p>
@@ -52,7 +53,6 @@ function remove(index) {
   book.removeBook(index);
   showBooks();
 }
-
 
 window.onload = () => {
   if (localStorage.getItem('books')) {
