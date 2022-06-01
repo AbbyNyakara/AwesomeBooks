@@ -35,7 +35,7 @@ let { books } = booksArray;
 
 function showBooks() {
   loggedBooks.innerHTML += '';
-  for (let i = 0; i < books.length; i = i + 1) {
+  for (let i = 0; i < books.length; i += 1 ) {
     loggedBooks.innerHTML += `
     <div class="card">
       <p class="title">"${books[i].title}" by ${books[i].author}</p>
