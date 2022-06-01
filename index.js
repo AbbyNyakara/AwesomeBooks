@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 
 const title = document.querySelector('.title-input');
 const author = document.querySelector('.author-input');
@@ -33,8 +34,8 @@ const booksArray = new Book();
 let { books } = booksArray;
 
 function showBooks() {
-  loggedBooks.innerHTML = '';
-  for (let i = 0; i < books.length; i = i+1) {
+  loggedBooks.innerHTML += '';
+  for (let i = 0; i < books.length; i = i + 1) {
     loggedBooks.innerHTML += `
     <div class="card">
       <p class="title">"${books[i].title}" by ${books[i].author}</p>
@@ -42,7 +43,7 @@ function showBooks() {
     </div>
    `;
 
-   // Reset the values 
+    // Reset the values
     title.value = '';
     author.value = '';
   }
