@@ -1,3 +1,6 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+
 const title = document.querySelector('.title-input');
 const author = document.querySelector('.author-input');
 const loggedBooks = document.querySelector('.logged-books');
@@ -14,7 +17,7 @@ class Book {
     this.title = title;
     this.author = author;
     this.books = [];
-      }
+  }
 
     addbook = (book) => {
       books.push(book);
@@ -32,15 +35,15 @@ let { books } = booksArray;
 
 function showBooks() {
   loggedBooks.innerHTML = '';
-  for (let i = 0; i < books.length; i++) {
-        loggedBooks.innerHTML += `
+  for (let i = 0; i < books.length; i += 1) {
+    loggedBooks.innerHTML += `
         <div class="card">
             <p class="title">"${books[i].title}" by ${books[i].author}</p>
             <button class="button" onclick="remove(${i})">Remove</button>
         </div>
         `;
 
-        // Reset the values 
+    // Reset the values
     title.value = '';
     author.value = '';
   }
@@ -52,10 +55,9 @@ function remove(index) {
   showBooks();
 }
 
-
 window.onload = () => {
   if (localStorage.getItem('books')) {
-  books = JSON.parse(localStorage.getItem('books'));
+    books = JSON.parse(localStorage.getItem('books'));
   }
   showBooks();
 };
