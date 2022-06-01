@@ -1,21 +1,36 @@
-/* eslint-disable no-unused-vars */
-
 const title = document.querySelector('.title-input');
 const author = document.querySelector('.author-input');
-const loggedBooks = document.querySelector('.logged-books');
+const registeredBooks = document.querySelector('.logged-books');
 const addButton = document.querySelector('.add-book');
 
-let books = [];
 
-function showBook() {
-  loggedBooks.innerHTML = '';
-  for (let i = 0; i < books.length; i += 1) {
-    loggedBooks.innerHTML += `
-    <div>
-      <p class="title">${books[i].title}</p>
-      <p class="author">${books[i].author}</p>
-      <button class="button" onclick="removeBook(${i})">remove</button>
-      <hr/>
+class BookClass {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.books = [];
+  }
+
+  addbook = (book) => {
+    books.push(book);
+  };
+
+  removeBook = (index) => {
+    books.splice(index, 1);
+  };
+}
+
+const booksArr = new BookClass();
+let { books } = booksArr;
+
+
+function displayBook() {
+  registeredBooks.innerHTML = '';
+  for (let i = 0; i < books.length; i++) {
+    registeredBooks.innerHTML += `
+    <div class="card">
+      <p class="title">"${books[i].title}" by ${books[i].author}</p>
+      <button class="button" onclick="remove(${i})">Remove</button>
     </div>
    `;
     title.value = '';
@@ -23,25 +38,19 @@ function showBook() {
   }
 }
 
-function removeBook(index) {
-  books.splice(index, 1);
-  showBook();
-  localStorage.setItem('books', JSON.stringify(books));
+function remove(index) {
+  const book = new BookClass();
+  book.removeBook(index);
+  displayBook();
 }
 
+
 window.onload = () => {
-  if (localStorage.getItem('books')) {
-    books = JSON.parse(localStorage.getItem('books'));
-  }
-  showBook();
+  displayBook();
 };
 
 addButton.addEventListener('click', () => {
-  const book = {
-    title: title.value,
-    author: author.value,
-  };
-  books.push(book);
-  showBook();
-  localStorage.setItem('books', JSON.stringify(books));
+  const book = new BookClass(title.value, author.value);
+  book.addbook(book);
+  displayBook();
 });

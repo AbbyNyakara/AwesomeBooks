@@ -9,20 +9,37 @@
 </head>
 <body>
     <main>
-        <h1 class="main-heading">Awesome Books</h1>
+        <h1 class="main-heading">All Awesome Books</h1>
 
         <!-- Logged books section to be created dynamically -->
-        <article class="logged-books"></article>
+        <article class="logged-books">
+            <!-- <div class="card">
+                <p>"Title" by Author</p>
+                <button type="button">Remove</button>
+            </div>
+
+            <div class="card">
+                <p>"Title" by Author</p>
+                <button type="button">Remove</button>
+            </div>
+
+            <div class="card">
+                <p>"Title" by Author</p>
+                <button type="button">Remove</button>
+            </div> -->
+        
+        </article>
 
         <!-- Form Section -->
-        <form action="#">
+        <form action="#" class="book-container">
+            <h3>Add a new Book</h3>
             <input class="title-input" type="text" placeholder="Title" name="title">
             <br>
             <input class="author-input" type="text" placeholder="Author" name="author">
             <br>
-            <button class="add-book" type="submit">Add</button>
+            <button class="add-book" type="submit">Add Book</button>
         </form>
     </main>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
