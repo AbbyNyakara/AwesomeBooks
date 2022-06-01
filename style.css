@@ -1,3 +1,45 @@
 form > input {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  padding: 6px;
+  border: 1px solid rgb(153, 151, 151);
+  border-radius: 7px;
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.logged-books {
+  width: 50%;
+  border: 3px solid #000;
+  margin: auto;
+}
+
+.logged-books > .card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+form {
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+}
+
+.card > button {
+  margin-right: 10px;
+}
+
+.card > p {
+  padding-left: 10px;
+}
+
+.logged-books > div {
+  background-color: #eee;
+}
+
+.logged-books > div:nth-child(odd) {
+  background-color: #ddd;
 }
