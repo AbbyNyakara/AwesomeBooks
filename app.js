@@ -10,29 +10,29 @@ if (localStorage.getItem('books')) {
 }
 
 class Book {
-constructor(title, author) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
     this.books = [];
-    }
+      }
 
     addbook = (book) => {
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
+      books.push(book);
+      localStorage.setItem('books', JSON.stringify(books));
     };
 
     removeBook = (index) => {
-    books.splice(index, 1);
-    localStorage.setItem('books', JSON.stringify(books));
+      books.splice(index, 1);
+      localStorage.setItem('books', JSON.stringify(books));
     };
 }
-    
+
 const booksArray = new Book();
 let { books } = booksArray;
 
 function showBooks() {
-    loggedBooks.innerHTML = '';
-    for (let i = 0; i < books.length; i++) {
+  loggedBooks.innerHTML = '';
+  for (let i = 0; i < books.length; i++) {
         loggedBooks.innerHTML += `
         <div class="card">
             <p class="title">"${books[i].title}" by ${books[i].author}</p>
@@ -41,28 +41,28 @@ function showBooks() {
         `;
 
         // Reset the values 
-        title.value = '';
-        author.value = '';
-        }
+    title.value = '';
+    author.value = '';
+  }
 }
 
 function remove(index) {
-    const book = new Book();
-    book.removeBook(index);
-    showBooks();
+  const book = new Book();
+  book.removeBook(index);
+  showBooks();
 }
 
 
 window.onload = () => {
-    if (localStorage.getItem('books')) {
-    books = JSON.parse(localStorage.getItem('books'));
-    }
-    showBooks();
+  if (localStorage.getItem('books')) {
+  books = JSON.parse(localStorage.getItem('books'));
+  }
+  showBooks();
 };
 
 addButton.addEventListener('click', () => {
-    const book = new Book(title.value, author.value);
-    book.addbook(book);
-    showBooks();
-    localStorage.setItem('books', JSON.stringify(books));
-}); 
+  const book = new Book(title.value, author.value);
+  book.addbook(book);
+  showBooks();
+  localStorage.setItem('books', JSON.stringify(books));
+});
