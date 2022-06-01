@@ -1,51 +1,69 @@
+const title = document.querySelector('.title-input');
+const author = document.querySelector('.author-input');
 const loggedBooks = document.querySelector('.logged-books');
-const authorInput = document.querySelector('.author-input');
-const titleInput = document.querySelector('.title-input');
 const addButton = document.querySelector('.add-book');
 
-// addButton.addEventListener('click', ()=>{
-//     // Once the button is clicked, create a new book 
-//     // Add the book to the book arrays 
-// })
+if (localStorage.getItem('books')) {
+  if (localStorage.getItem('books').length > 2) {
+    loggedBooks.classList.add('loggedBooks-books2');
+  }
+}
 
-// Create the book class
 class Book {
-    constructor(titleInput, authorInput){
-        this.titleInput = titleInput;
-        this.authorInput = authorInput;
-        this.bookList = [];
-    }
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.books = [];
+  }
 
-    // Add a removeBook function to remove a book from the booklist 
-    removeBook(index) {
-        bookList.splice(index, 1)   // This is the entire booklist array
-    }
+  addbook = (book) => {
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  };
 
-    // Add a fucntion to add a book to the array
-    addBook(book){
-        bookList.push(book)
-    }
+  removeBook = (index) => {
+    books.splice(index, 1);
+    localStorage.setItem('books', JSON.stringify(books));
+  };
 }
 
 const booksArray = new Book();
-let { bookList } = booksArray;
+let { books } = booksArray;
 
 
-// Create a function to display all the books dynamically
-
-function showBooks (){
+function showBooks() {
     loggedBooks.innerHTML = '';
-    for (let i=0; i<bookList.length; i++){
-        loggedBooks.innerHTML += `
-        <div class="card">
-            <p>"${loggedBooks[i].titleInput}" by ${loggedBooks[i].authorInput}</p>
-            <button type="button" onclick="removeBook(${i})">Remove</button>
-        </div>
-        `;
+  for (let i = 0; i < books.length; i++) {
+    loggedBooks.innerHTML += `
+    <div class="card">
+      <p class="title">"${books[i].title}" by ${books[i].author}</p>
+      <button class="button" onclick="remove(${i})">Remove</button>
+    </div>
+   `;
 
-        // Reset the user input to null again 
-        titleInput.value = '';
-        authorInput.value = '';
-    }
+   // Reset the values 
+    title.value = '';
+    author.value = '';
+  }
 }
 
+function remove(index) {
+  const book = new Book();
+  book.removeBook(index);
+  showBooks();
+}
+
+
+window.onload = () => {
+  if (localStorage.getItem('books')) {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
+  showBooks();
+};
+
+addButton.addEventListener('click', () => {
+  const book = new Book(title.value, author.value);
+  book.addbook(book);
+  showBooks();
+  localStorage.setItem('books', JSON.stringify(books));
+});
